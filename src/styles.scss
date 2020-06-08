@@ -6,9 +6,11 @@ body {
 .container {
   border: solid black 1px;
   width: fit-content;
-  margin: 40px;
+  margin: 16px;
 }
 
 .graphs-container {
   display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 80px;
 }

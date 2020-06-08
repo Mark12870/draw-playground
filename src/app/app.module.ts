@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { KonvaComponent } from './konva/konva.component';
+import { PixiComponent } from './pixi/pixi.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    KonvaComponent
+    KonvaComponent,
+    PixiComponent
   ],
   imports: [
     BrowserModule

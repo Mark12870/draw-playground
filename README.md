@@ -12,3 +12,10 @@ Trying functionality of drawing libraries
 - Transparent Background
 - Mouse Events (Hover / Click)
 - Scaling (Whole canvas and inner text)
+
+## Konva
+- A bit complicated animations
+- Don't know how to do color transitions
+
+## Pixi
+- No dashed line support out of the box
