@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  background: url('https://www.toptal.com/designers/subtlepatterns/patterns/moroccan-flower.png');
+}
+
+.container {
+  border: solid black 1px;
+  width: fit-content;
+  margin: 40px;
+}
+
+.graphs-container {
+  display: flex;
+}

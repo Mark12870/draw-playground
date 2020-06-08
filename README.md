@@ -5,10 +5,10 @@ Trying functionality of drawing libraries
 - KonvaJS
 - PixiJS
 - PaperJS
-- TwoJS
+- GoJS
 
 ## Functions
-- Transparent Background
-- Mouse Events (Hover / Mouse In Out / Click)
-- Scaling (Whole canvas and inner text)
 - Advanced element drawing (Dashed lines, circles, arcs)
+- Transparent Background
+- Mouse Events (Hover / Click)
+- Scaling (Whole canvas and inner text)
