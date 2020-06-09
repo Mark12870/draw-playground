@@ -6,8 +6,8 @@ Trying functionality of drawing libraries
 
 - KonvaJS
 - PixiJS
-- PaperJS
 - GoJS
+- PaperJS
 
 ## Functions
 
@@ -26,3 +26,10 @@ Trying functionality of drawing libraries
 - No dashed line support out of the box
 - Problematic events on arcs, couldn't solve correct hit areas
 - No out of the box animations
+
+##GoJS
+
+- Pretty Expensive
+- Ugly documentation examples
+
+##

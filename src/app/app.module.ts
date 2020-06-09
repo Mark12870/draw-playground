@@ -4,12 +4,14 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { KonvaComponent } from './konva/konva.component';
 import { PixiComponent } from './pixi/pixi.component';
+import { GoComponent } from './go/go.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     KonvaComponent,
-    PixiComponent
+    PixiComponent,
+    GoComponent
   ],
   imports: [
     BrowserModule
