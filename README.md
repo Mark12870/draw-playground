@@ -31,5 +31,3 @@ Trying functionality of drawing libraries
 
 - Pretty Expensive
 - Ugly documentation examples
-
-##
