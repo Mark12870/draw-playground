@@ -30,4 +30,4 @@ Trying functionality of drawing libraries
 ##GoJS
 
 - Pretty Expensive
-- Ugly documentation examples
+- Ugly code examples in documentation
