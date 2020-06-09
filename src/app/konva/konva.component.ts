@@ -72,11 +72,13 @@ export class KonvaComponent implements AfterViewInit {
 
   addEvents(): void {
     this.arc.on('mouseover', event => {
+      this.stage.container().style.cursor = 'pointer';
       const shape = event.target;
       shape.setAttr('fill', 'orange');
       this.layer.draw();
     });
     this.arc.on('mouseout', event => {
+      this.stage.container().style.cursor = 'default';
       const shape = event.target;
       shape.setAttr('fill', 'yellow');
       this.layer.draw();
