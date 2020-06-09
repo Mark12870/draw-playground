@@ -24,7 +24,5 @@ export class GoComponent implements AfterViewInit {
     this.diagram.toolManager.panningTool.isEnabled = false;
     this.diagram.toolManager.dragSelectingTool.isEnabled = false;
     this.diagram.toolManager.draggingTool.isEnabled = false;
-
-    this.diagram.add(Shape, { figure: 'Circle', fill: 'green' });
   }
 }
