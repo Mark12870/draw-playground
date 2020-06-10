@@ -57,7 +57,7 @@ export class PixiComponent implements AfterViewInit {
     this.app.stage.addChild(arc);
 
     this.arcFill = new Graphics();
-    this.drawArc(this.arcFill, 0xffff00);
+    this.drawArcFill(this.arcFill, 0xffff00);
     this.app.stage.addChild(this.arcFill);
 
     this.text = new Text(
@@ -79,11 +79,11 @@ export class PixiComponent implements AfterViewInit {
     this.arcFill.buttonMode = true;
     this.arcFill.on('mouseover', () => {
       this.arcFill.clear();
-      this.drawArc(this.arcFill, 0xffa500);
+      this.drawArcFill(this.arcFill, 0xffa500);
     });
     this.arcFill.on('mouseout', () => {
       this.arcFill.clear();
-      this.drawArc(this.arcFill, 0xffff00);
+      this.drawArcFill(this.arcFill, 0xffff00);
     });
 
     const tickerUp = new Ticker();
@@ -112,7 +112,7 @@ export class PixiComponent implements AfterViewInit {
     });
   }
 
-  drawArc(arc: Graphics, color: number): void {
+  drawArcFill(arc: Graphics, color: number): void {
     arc.lineStyle(25, color);
     arc.arc(
       this.app.view.width / 2,

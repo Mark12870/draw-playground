@@ -6,8 +6,8 @@ Trying functionality of drawing libraries
 
 - KonvaJS
 - PixiJS
-- GoJS
 - PaperJS
+- GoJS
 
 ## Functions
 
@@ -18,14 +18,16 @@ Trying functionality of drawing libraries
 
 ## Konva
 
-- Don't know how to do color transitions
-- No out of the box animations
+- No problems
 
 ## Pixi
 
 - No dashed line support out of the box
-- Problematic events on arcs, couldn't solve correct hit areas
-- No out of the box animations
+- Problematic events on arcs, couldn't solve correct event areas
+
+## Paper
+
+- Tiny problems with Typescript Types
 
 ##GoJS
 
