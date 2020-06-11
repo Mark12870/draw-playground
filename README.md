@@ -23,6 +23,6 @@ Trying functionality of drawing libraries
 ## Paper
 - Tiny problems with Typescript Types
 
-##GoJS
+## GoJS
 - Pretty Expensive
 - Ugly code examples in documentation
