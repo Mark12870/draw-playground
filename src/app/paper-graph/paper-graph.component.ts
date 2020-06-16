@@ -14,6 +14,7 @@ export class PaperGraphComponent implements AfterViewInit {
   graphHeight: number;
   graphLines: paper.Group;
   graphLegend: paper.Group;
+  graphPoints: number[][];
 
   ngAfterViewInit(): void {
     this.project = new Project(this.paperCanvas.nativeElement);
@@ -22,13 +23,15 @@ export class PaperGraphComponent implements AfterViewInit {
     this.graphWidth = (this.project.view.viewSize.width / 100) * 80;
     this.graphHeight = (this.project.view.viewSize.height / 100) * 80;
 
+    this.graphPoints = this.generateGraphPoints(20);
+
     this.drawGraphLegend();
     this.drawGraphLines();
   }
 
   drawGraphLines(): void {
     const graphMainLine = new Path({
-      segments: this.generateGraphPaths(200),
+      segments: this.graphPoints,
       strokeColor: 'black',
       strokeWidth: 2,
     });
@@ -82,7 +85,7 @@ export class PaperGraphComponent implements AfterViewInit {
     );
   }
 
-  generateGraphPaths(pathsCount: number): number[][] {
+  generateGraphPoints(pathsCount: number): number[][] {
     const pathsArray: number[][] = [];
 
     for (let currentCount = 0; currentCount <= pathsCount - 1; currentCount++) {
@@ -118,10 +121,14 @@ export class PaperGraphComponent implements AfterViewInit {
       segments: [zeroPoint, [this.graphWidth, this.graphHeight]],
     });
 
-    const topPoint = new Point([0, (this.graphHeight / 100) * 20]);
+    const graphYMaxPointShift = 20;
+    const graphYMaxPoint =
+      Math.min(...this.graphPoints.map(point => point[1])) +
+      graphYMaxPointShift;
+    const topPoint = new Point([0, graphYMaxPoint]);
     const topText = new PointText({
       point: [topPoint.x - 24, topPoint.y],
-      content: this.graphHeight - (this.graphHeight / 100) * 20,
+      content: this.graphHeight - topPoint.y,
       fillColor: 'grey',
       fontSize: 16,
       justification: 'center',
@@ -132,15 +139,10 @@ export class PaperGraphComponent implements AfterViewInit {
       segments: [topPoint, [this.graphWidth, topPoint.y]],
     });
 
-    const middlePoint = new Point([
-      0,
-      ((this.graphHeight / 100) * 20 + this.graphHeight) / 2,
-    ]);
+    const middlePoint = new Point([0, (topPoint.y + this.graphHeight) / 2]);
     const middleText = new PointText({
       point: [middlePoint.x - 24, middlePoint.y],
-      content:
-        this.graphHeight -
-        ((this.graphHeight / 100) * 20 + this.graphHeight) / 2,
+      content: this.graphHeight - middlePoint.y,
       fillColor: 'grey',
       fontSize: 16,
       justification: 'center',

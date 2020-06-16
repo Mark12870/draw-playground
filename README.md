@@ -21,7 +21,7 @@ Trying functionality of drawing libraries
 - Problematic events on arcs, couldn't solve correct event areas
 
 ## Paper
-- Tiny problems with Typescript Types
+- Problems with Typescript Types
 
 ## GoJS
 - Pretty Expensive
