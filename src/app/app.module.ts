@@ -7,6 +7,7 @@ import { PixiComponent } from './pixi/pixi.component';
 import { GoComponent } from './go/go.component';
 import { PaperComponent } from './paper/paper.component';
 import { PaperGraphComponent } from './paper-graph/paper-graph.component';
+import { KonvaGraphComponent } from './konva-graph/konva-graph.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { PaperGraphComponent } from './paper-graph/paper-graph.component';
     PixiComponent,
     GoComponent,
     PaperComponent,
-    PaperGraphComponent
+    PaperGraphComponent,
+    KonvaGraphComponent
   ],
   imports: [
     BrowserModule
