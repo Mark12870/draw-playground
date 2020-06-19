@@ -1,5 +1,5 @@
 # DrawPlayground
-Trying functionality of drawing libraries
+Drawing library research.
 
 ## Libraries
 - KonvaJS
@@ -13,16 +13,14 @@ Trying functionality of drawing libraries
 - Mouse Events (Hover / Click)
 - Scaling (Whole canvas and inner text)
 
-## Konva
+## Results
+### Konva
 - No problems
-
-## Pixi
+### Pixi
 - No dashed line support out of the box
 - Problematic events on arcs, couldn't solve correct event areas
-
-## Paper
+### Paper
 - Problems with Typescript Types
-
-## GoJS
+### GoJS
 - Pretty Expensive
 - Ugly code examples in documentation
