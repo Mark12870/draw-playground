@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { Project, Path, Color, Group, Point, PointText } from 'paper';
+import { generateGraphPoints } from '../utils';
 
 @Component({
   selector: 'app-paper-graph',
@@ -23,7 +24,11 @@ export class PaperGraphComponent implements AfterViewInit {
     this.graphWidth = (this.project.view.viewSize.width / 100) * 80;
     this.graphHeight = (this.project.view.viewSize.height / 100) * 80;
 
-    this.graphPoints = this.generateGraphPoints(20);
+    this.graphPoints = generateGraphPoints(
+      20,
+      this.graphWidth,
+      this.graphHeight,
+    );
 
     this.drawGraphLegend();
     this.drawGraphLines();
@@ -83,24 +88,6 @@ export class PaperGraphComponent implements AfterViewInit {
         (this.project.view.viewSize.height / 100) * 10,
       ),
     );
-  }
-
-  generateGraphPoints(pathsCount: number): number[][] {
-    const pathsArray: number[][] = [];
-
-    for (let currentCount = 0; currentCount <= pathsCount - 1; currentCount++) {
-      const x = (this.graphWidth / (pathsCount - 1)) * currentCount;
-      let y = this.getRandomInt(this.graphHeight - 20, 20);
-      if (currentCount == 0 || currentCount == pathsCount - 1) {
-        y = this.graphHeight;
-      }
-      pathsArray.push([x, y]);
-    }
-    return pathsArray;
-  }
-
-  getRandomInt(max: number, min: number): number {
-    return Math.floor(Math.random() * (max - min) + min);
   }
 
   drawGraphLegend(): void {
