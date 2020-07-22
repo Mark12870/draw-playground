@@ -1,1 +1,7 @@
 <canvas class="container" #paperCanvas></canvas>
+<div class="fps-container">
+  <button (click)="start()">Start</button>
+  <div>Average FPS: {{ avgFps }}</div>
+  <div>Min FPS: {{ minFps }}</div>
+  <div>Max FPS: {{ maxFps }}</div>
+</div>
