@@ -1,6 +1,5 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { Project, Path, Color, Group, Point, PointText } from 'paper';
-import { max } from 'rxjs/operators';
 import { generateGraphPoints } from '../utils';
 
 @Component({
@@ -11,7 +10,7 @@ import { generateGraphPoints } from '../utils';
 export class PaperGraphComponent implements AfterViewInit {
   @ViewChild('paperCanvas') paperCanvas: ElementRef;
 
-  pointsCount = 1000;
+  pointsCount = 20;
   project: paper.Project;
   graphWidth: number;
   graphHeight: number;
@@ -42,7 +41,6 @@ export class PaperGraphComponent implements AfterViewInit {
         this.graphHeight,
       );
       this.drawGraphLines();
-      this.drawGraphLegend();
 
       if (frame !== 0) {
         previousFrames.push(frame);
@@ -59,6 +57,8 @@ export class PaperGraphComponent implements AfterViewInit {
       i++;
       if (i < 100) {
         requestAnimationFrame(redraw);
+      } else {
+        this.drawGraphLegend();
       }
     };
 
@@ -71,7 +71,6 @@ export class PaperGraphComponent implements AfterViewInit {
       strokeColor: 'black',
       strokeWidth: 2,
     });
-    graphMainLine.smooth({ type: 'catmull-rom' });
     graphMainLine.fillColor = new Color({
       gradient: {
         stops: [
