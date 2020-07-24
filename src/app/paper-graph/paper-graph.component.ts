@@ -10,12 +10,16 @@ import { generateGraphPoints } from '../utils';
 export class PaperGraphComponent implements AfterViewInit {
   @ViewChild('paperCanvas') paperCanvas: ElementRef;
 
+  pointsCount = 20;
   project: paper.Project;
   graphWidth: number;
   graphHeight: number;
   graphLines: paper.Group;
   graphLegend: paper.Group;
   graphPoints: number[][];
+  avgFps: number;
+  minFps: number;
+  maxFps: number;
 
   ngAfterViewInit(): void {
     this.project = new Project(this.paperCanvas.nativeElement);
@@ -23,15 +27,42 @@ export class PaperGraphComponent implements AfterViewInit {
     this.project.view.viewSize.height = 300;
     this.graphWidth = (this.project.view.viewSize.width / 100) * 80;
     this.graphHeight = (this.project.view.viewSize.height / 100) * 80;
+  }
 
-    this.graphPoints = generateGraphPoints(
-      20,
-      this.graphWidth,
-      this.graphHeight,
-    );
+  start() {
+    let i = 0;
+    const previousFrames: number[] = [];
 
-    this.drawGraphLegend();
-    this.drawGraphLines();
+    const redraw = frame => {
+      this.project.clear();
+      this.graphPoints = generateGraphPoints(
+        this.pointsCount,
+        this.graphWidth,
+        this.graphHeight,
+      );
+      this.drawGraphLines();
+
+      if (frame !== 0) {
+        previousFrames.push(frame);
+      }
+      const fpsArray = previousFrames
+        .map((val, index) => val - previousFrames[index - 1])
+        .slice(1, previousFrames.length)
+        .map(val => 1 / (val / 1000));
+      this.avgFps =
+        fpsArray.reduce((acc, currentValue) => acc + currentValue, 0) /
+        fpsArray.length;
+      this.minFps = Math.min(...fpsArray);
+      this.maxFps = Math.max(...fpsArray);
+      i++;
+      if (i < 100) {
+        requestAnimationFrame(redraw);
+      } else {
+        this.drawGraphLegend();
+      }
+    };
+
+    redraw(0);
   }
 
   drawGraphLines(): void {
@@ -40,7 +71,6 @@ export class PaperGraphComponent implements AfterViewInit {
       strokeColor: 'black',
       strokeWidth: 2,
     });
-    graphMainLine.smooth({ type: 'catmull-rom' });
     graphMainLine.fillColor = new Color({
       gradient: {
         stops: [

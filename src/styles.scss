@@ -14,3 +14,15 @@ body {
   flex-wrap: wrap;
   margin-bottom: 80px;
 }
+
+.fps-container {
+  width: fit-content;
+  margin-left: 16px;
+}
+
+.input-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 300px;
+}
