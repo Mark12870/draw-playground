@@ -15,7 +15,7 @@ Drawing library research.
 
 ## Results
 ### Konva
-- No problems
+- No automatic polyline smoothing
 ### Pixi
 - No dashed line support out of the box
 - Problematic events on arcs, couldn't solve correct event areas
