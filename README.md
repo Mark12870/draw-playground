@@ -20,7 +20,9 @@ Drawing library research.
 - No dashed line support out of the box
 - Problematic events on arcs, couldn't solve correct event areas
 ### Paper
-- Problems with Typescript Types
+- Not full Typescript support
+- Magically adding new objects to Layers
+- A lot of features
 ### GoJS
 - Pretty Expensive
 - Ugly code examples in documentation
